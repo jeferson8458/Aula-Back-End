@@ -1,0 +1,37 @@
+# Inicializar a lista de tarefas vazia
+lista_de_tarefas = []
+
+# Função para adicionar uma tarefa à lista
+funcao adicionarTarefa(tarefa):
+    lista_de_tarefas.append(tarefa)
+
+# Função para remover uma tarefa da lista
+funcao removerTarefa(indice):
+    se indice válido:
+        remova a tarefa na posição indice
+    senão:
+        exiba uma mensagem de erro
+
+# Função para listar todas as tarefas na lista
+funcao listarTarefas():
+    se lista_de_tarefas não vazia:
+        para cada tarefa na lista_de_tarefas:
+            exiba a tarefa
+    senão:
+        exiba uma mensagem indicando que a lista está vazia
+
+# Loop principal do programa
+enquanto True:
+    exiba opções para o usuário (adicionar, remover, listar, sair)
+    usuário escolhe uma opção
+    
+    se opção é adicionar:
+        solicite uma nova tarefa
+        chame adicionarTarefa com a nova tarefa
+    se opção é remover:
+        solicite o índice da tarefa a ser removida
+        chame removerTarefa com o índice
+    se opção é listar:
+        chame listarTarefas
+    se opção é sair:
+        encerre o programa
