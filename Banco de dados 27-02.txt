@@ -87,6 +87,23 @@ SELECT sintomas.nome
 FROM sintomas
 WHERE sintomas.user_id = 1;
 
+------------------------------------------------------
+Mostrar os tipos de dados da tabela:
+DESCRIBE users
+
+
+Alterar o nome da tabela:
+ALTER TABLE users
+CHANGE COLUMN Email NovoNome VARCHAR(100) UNIQUE;
+
+Adicionar uma coluna nova:
+ALTER TABLE nome_da_tabela
+ADD COLUMN nome_da_nova_coluna tipo_de_dados;
+
+Edtiar o da coluna:
+ALTER TABLE minha_tabela
+ADD COLUMN nova_coluna VARCHAR(50) AFTER coluna_existente;
+
 
 
 
