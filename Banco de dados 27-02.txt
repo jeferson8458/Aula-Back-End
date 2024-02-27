@@ -100,7 +100,7 @@ Adicionar uma coluna nova:
 ALTER TABLE nome_da_tabela
 ADD COLUMN nome_da_nova_coluna tipo_de_dados;
 
-Edtiar o da coluna:
+Edtiar o nome da coluna:
 ALTER TABLE minha_tabela
 ADD COLUMN nova_coluna VARCHAR(50) AFTER coluna_existente;
 
