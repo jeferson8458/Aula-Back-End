@@ -1,0 +1,92 @@
+
+Criar o Banco de dados:
+CREATE DATABASE Dengue;
+
+Mostrar todos do banco de dados:
+SHOW DATABASES;
+
+Utilizar esse banco de dados:
+USE DATABASE Dengue;
+
+Agora usar esse banco de dados para criar as coisas:
+USE Dengue;
+
+
+Criar Tabela no banco igual excel:
+create table users(
+  Id INT AUTO_INCREMENT PRIMARY KEY,
+  Nome varchar(100),
+  Cpf varchar(100),
+  Email varchar(100),
+  Cep varchar(100),
+  Status varchar(100),
+  Atendimento boolean,
+  created_at datetime
+)
+
+Mostrar todas a tabela:
+SHOW TABLES;
+
+Excluir:
+DROP TABLE nome_da_tabela;
+
+E mostrar todos os dados dessa tabela:
+select * from users;
+
+Modificar tabela:
+alter table users
+modify column Email varchar(100) unique
+
+
+Criar dados Na tabela:
+INSERT INTO users (nome, cpf, email, cep, status, Atendimento)
+VALUES ('João Silva', '456465465', 'teste@gmail.com','5467675', 'suspeito', true);
+
+
+Criar banco de dados:
+create table sintomas(
+  Id INT AUTO_INCREMENT PRIMARY KEY,
+  sintoma_nome varchar(100),
+  user_id INT,
+  created_at datetime,
+  FOREIGN KEY (user_id) REFERENCES users(Id)
+)
+
+Criar dados:
+INSERT INTO sintomas (user_id, sintoma_nome) VALUES (1, 'Febre');
+
+Mostrar 
+SELECT users.*, sintomas.nome
+FROM users
+LEFT JOIN sintomas ON users.Id = sintomas.user_id
+WHERE users.Id= 1;
+
+Criar banco de dados:
+create table location(
+  Id INT AUTO_INCREMENT PRIMARY KEY,
+  estado varchar(100),
+  municipio varchar(100),
+  bairro varchar(100),
+  user_id INT,
+  created_at datetime,
+  FOREIGN KEY (user_id) REFERENCES users(Id)
+)
+Criar dados:
+INSERT INTO location (user_id, estado, municipio, bairro) VALUES (1, 'Rio de Janeiro','Niterói','Fonseca');
+
+
+Mostrar 
+SELECT users.*, sintomas.nome, location.estado, location.municipio 
+FROM users
+LEFT JOIN sintomas ON users.Id = sintomas.user_id
+LEFT JOIN location ON users.Id = location.user_id
+WHERE users.Id= 1;
+
+Se eu quiser só ver apenas os sintomas daquele usuario?
+SELECT sintomas.nome
+FROM sintomas
+WHERE sintomas.user_id = 1;
+
+
+
+
